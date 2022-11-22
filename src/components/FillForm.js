@@ -17,7 +17,7 @@ const FormElement = (props) => (
         max="10"
         step="1"
         defaultValue="5"
-        className="large-range w-full h-2 bg-fuchsia-500 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
+        className="large-range w-full h-2 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
       />
       <span>10</span>
     </div>
@@ -93,10 +93,10 @@ function FillForm() {
         bad and extreme right being extremely good)
       </p>
       <br />
-      <form className=" bg-slate-900 p-5 w-2/3 rounded-lg flex flex-col justify-left">
+      <form className=" bg-slate-900 text-white p-5 w-2/3 rounded-lg flex flex-col justify-left">
         {FormElementArray}
         <button onClick={handleSubmit} className="text-white" type="submit">
-          Submit
+          Generate Results
         </button>
       </form>
     </div>

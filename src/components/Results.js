@@ -19,7 +19,8 @@ function Results() {
       <h1 className="text-2xl">Here are your results:</h1>
       <div className="bg-clip-text text-transparent bg-gradient-to-r from-sky-500 to-pink-500">
         <h1 className="text-7xl my-6" id="stress-score">
-          {score}/8
+          {/* fix - replaced 8 with 10 */}
+          {score}/10
         </h1>
         <h1 style={{ color: isStressColor }} className="text-5xl my-6" id="stress-bool">
           {isStress}
