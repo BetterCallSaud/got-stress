@@ -38,41 +38,69 @@ const factors = [
 ];
 
 for (let i = 0; i < factors.length; i++) {
-  FormElementArray.push(<FormElement factor={factors[i]} id={`minmax-range-${i+1}`} />);
+  FormElementArray.push(
+    <FormElement factor={factors[i]} id={`minmax-range-${i + 1}`} />
+  );
 }
 
 function FillForm() {
+  const navigate = useNavigate();
 
-    const navigate = useNavigate();
+  function handleSubmit() {
+    let totalValue = 0;
+    let isStress, isStressColor, stressLevel, stressLevelColor;
 
-    function handleSubmit() {
-        let totalValue = 0;
-        for (let i = 0; i < factors.length; i++) {
-            const element = document.getElementById(`minmax-range-${i+1}`);
-            totalValue += parseInt(element.value);
-            navigate("/results", {replace: true, state: { score: totalValue/factors.length }});
-        }
+    for (let i = 0; i < factors.length; i++) {
+      const element = document.getElementById(`minmax-range-${i + 1}`);
+      totalValue += parseInt(element.value);
+    }
+    const score = totalValue / factors.length;
+    if (score < 5) {
+      isStress = "Stress detected.";
+      isStressColor = "#ea3f3f";
+      if (score <= 2) {
+        stressLevel = "High stress";
+        stressLevelColor = "red";
+      } else {
+        stressLevel = "Moderate stress";
+        stressLevelColor = "fuchsia";
+      }
+      
+    } else {
+      isStress = "Chance of stress.";
+      isStressColor = "#25fc74";
+      if (score <= 7) {
+        stressLevel = "Low stress";
+        stressLevelColor = "cornflowerblue";
+      } else {
+        stressLevel = "Stress-free";
+        stressLevelColor = "powderblue";
+      }
     }
 
-    return (
-        <div className="flex flex-col items-center mx-10 my-20 text-center">
-        <h1 className="text-5xl text-slate-900 underline">Fill out this form</h1>
-        <br />
-        <p>
-            Please drag the slider from left to right (extreme left being extremely
-            bad and extreme right being extremely good)
-        </p>
-        <br />
-        <form
-            className=" bg-slate-900 p-5 w-2/3 rounded-lg flex flex-col justify-left"
-        >
-            {FormElementArray}
-            <button onClick={handleSubmit} className="text-white" type="submit">
-            Submit
-            </button>
-        </form>
-        </div>
-    );
+    navigate("/results", {
+      replace: true,
+      state: { score: totalValue / factors.length, isStress: isStress, isStressColor: isStressColor, stressLevel: stressLevel, stressLevelColor: stressLevelColor },
+    });
+  }
+
+  return (
+    <div className="flex flex-col items-center mx-10 my-20 text-center">
+      <h1 className="text-5xl text-slate-900 underline">Fill out this form</h1>
+      <br />
+      <p>
+        Please drag the slider from left to right (extreme left being extremely
+        bad and extreme right being extremely good)
+      </p>
+      <br />
+      <form className=" bg-slate-900 p-5 w-2/3 rounded-lg flex flex-col justify-left">
+        {FormElementArray}
+        <button onClick={handleSubmit} className="text-white" type="submit">
+          Submit
+        </button>
+      </form>
+    </div>
+  );
 }
 
 export default FillForm;

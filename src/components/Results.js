@@ -1,32 +1,12 @@
-import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 function Results() {
   const loc = useLocation();
   const score = loc.state.score;
-
-  let [ stressLevel, setStressLevel ] = useState("");
-  let [ stressBool, setStressBool ] = useState("");
-
-  if (score < 5) {
-    setStressBool("You have stress!");
-    if (score <= 2) {
-        setStressLevel("Hypertension");
-        document.getElementById("stress-level").style.color = "red";
-    } else {
-        setStressLevel("Moderate stress");
-        document.getElementById("stress-level").style.color = "fuchsia";
-    }
-  } else {
-    setStressBool("Negligible/no stress.");
-    if (score <= 7) {
-        setStressLevel("Mild stress");
-        document.getElementById("stress-level").style.color = "cornflowerblue";
-    } else {
-        setStressLevel("Stress-free");
-        document.getElementById("stress-level").style.color = "powderblue";
-    }
-  }
+  const isStress = loc.state.isStress;
+  const isStressColor = loc.state.isStressColor;
+  const stressLevel = loc.state.stressLevel;
+  const stressLevelColor = loc.state.stressLevelColor;
 
   return (
     <div className="m-5 text-center">
@@ -37,14 +17,14 @@ function Results() {
       <br />
       <br />
       <h1 className="text-2xl">Here are your results:</h1>
-      <div className="text-7xl bg-clip-text text-transparent bg-gradient-to-r from-sky-500 to-pink-500">
-        <h1 className="my-6" id="stress-score">
+      <div className="bg-clip-text text-transparent bg-gradient-to-r from-sky-500 to-pink-500">
+        <h1 className="text-7xl my-6" id="stress-score">
           {score}/8
         </h1>
-        <h1 className="my-6" id="stress-boolean">
-          {stressBool}
+        <h1 style={{ color: isStressColor }} className="text-5xl my-6" id="stress-bool">
+          {isStress}
         </h1>
-        <h1 className="my-6" id="stress-level">
+        <h1 style={{ color: stressLevelColor }} className="text-5xl my-6" id="stress-level">
           {stressLevel}
         </h1>
       </div>
