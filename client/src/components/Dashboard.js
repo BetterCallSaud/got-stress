@@ -26,8 +26,7 @@ export default function Dashboard() {
       <h1 className="underline">Dashboard</h1>
       <br />
       <p className="mx-20 mb-10">
-        This is the dashboard. You can <b>create, update or delete</b> your
-        entries and even VIEW your entries that are stored in our schema-based
+        This is the dashboard. You can <b>create, store</b> and even VIEW your entries that are stored in Sanity's schema-based
         NoSQL database.
       </p>
       <div className="w-full flex flex-col items-center justify-center">
@@ -36,12 +35,6 @@ export default function Dashboard() {
         </button>
         <button className="my-2 text-white" onClick={navigateToAddEntry}>
           Add Entry
-        </button>
-        <button className="my-2 text-white" onClick={navigateToUpdateEntry}>
-          Update Entry
-        </button>
-        <button className="my-2 text-white" onClick={navigateToDeleteEntry}>
-          Delete Entry
         </button>
       </div>
     </div>

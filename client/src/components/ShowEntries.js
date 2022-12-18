@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import client from "../sanity/client";
-import { useNavigate } from "react-router-dom";
 
 const EntryCard = (props) => (
   <form action="/generateResults" method="post" className="h-fit w-56 border-2 mx-10 rounded-xl p-10 cursor-pointer hover:scale-105 duration-300 transition-all">

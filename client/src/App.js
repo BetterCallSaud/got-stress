@@ -5,8 +5,6 @@ import "./App.css";
 import Homepage from "./components/Homepage";
 import Dashboard from "./components/Dashboard";
 import AddEntry from "./components/AddEntry";
-import UpdateEntry from "./components/UpdateEntry";
-import DeleteEntry from "./components/DeleteEntry";
 import ShowEntries from "./components/ShowEntries";
 
 function App() {
@@ -17,8 +15,6 @@ function App() {
           <Route path="/" exact element={<Homepage />} />
           <Route path="/dashboard" exact element={<Dashboard />} />
           <Route path="/addEntry" exact element={<AddEntry />} />
-          <Route path="/updateEntry" exact element={<UpdateEntry />} />
-          <Route path="/deleteEntry" exact element={<DeleteEntry />} />
           <Route path="/showEntries" exact element={<ShowEntries />} />
         </Routes>
       </Router>

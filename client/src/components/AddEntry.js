@@ -97,11 +97,15 @@ export default function AddEntry() {
       >
         <h1 className="text-5xl text-slate-900 underline">Add Entry</h1>
         <br />
-        <p>
+        <p className="font-semibold text-lg">
           Please drag the slider from left to right (extreme left suggesting
           good feelings and extreme right being bad feelings)
         </p>
         <br />
+        <div className="text-center p-5 mx-20 rounded-md bg-yellow-300 text-yellow-900 text-md mb-16">
+          <h1>NOTICE!</h1>
+          <p>Please enter all the information truthfully and honestly. We would appreciate if you don't feel it funny to mess with the algorithm by entering the wrong inputs and conflicting variables. Thank you.</p>
+        </div>
         <div
           className=" bg-slate-900 text-white p-5 w-2/3 rounded-lg flex flex-col justify-left"
         >
