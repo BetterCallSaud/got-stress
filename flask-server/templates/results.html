@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Here are your results!</title>
+    <link
+      href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap");
+    </style>
+    <script src="./script.js"></script>
+  </head>
+  <body style="font-family: Montserrat">
+    <nav
+      class="w-full flex justify-around bg-blue-500 text-2xl p-5 text-white font-bold"
+    >
+      <a class="hover:underline" href="/"> Home </a>
+      <a class="hover:underline" href="/dashboard"> Dashboard </a>
+    </nav>
+    <br />
+    <div id="entry-added" style="display: none">
+      <h1 class="text-xl font-bold text-center">Entry added.</h1>
+      <p>
+        You can go back to the
+        <a class="underline text-blue-600" href="/dashboard">Dashboard</a> now!
+      </p>
+    </div>
+    <div id="results-div" class="m-5 text-center">
+      <h1 class="mt-6 text-5xl font-bold text-slate-800 underline">Results</h1>
+      <br />
+      <br />
+      <h1 class="text-2xl">Here are your results:</h1>
+
+      <h2>Factor values as a list:</h2>
+      <ul class="flex justify-center">
+        [ {% for i in range(8) %}
+        <li id="factor-{{i+1}}" class="mx-2">{{ fValues[i] }},</li>
+        {% endfor %} ]
+      </ul>
+      <br />
+
+      <h1 id="factor-score" class="text-xl text-blue-500">
+        Factor score = {{ factorScore }}
+      </h1>
+      <h1 id="sentiment-score" class="text-xl text-pink-500">
+        Sentiment score = {{ sentimentScore }}
+      </h1>
+      <h1 id="stress-score" class="text-xl text-black">
+        Final stress score = {{ stressScore }}
+      </h1>
+      <br />
+    </div>
+  </body>
+</html>
